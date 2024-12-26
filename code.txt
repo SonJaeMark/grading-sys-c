@@ -1,0 +1,218 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
+#include <conio.h>
+
+#include "strflib.h"
+
+#define STR_MIN_LEN 256
+
+//#################### STRUCT #################### 
+//#################### STRUCT ####################
+//#################### STRUCT ####################
+typedef struct Date
+{ 
+    int MM;
+    int DD;
+    int YYYY;
+} Date;
+
+typedef struct UserDetails 
+{
+    int id;
+    char fname[STR_MIN_LEN];
+    char mname[STR_MIN_LEN];
+    char lname[STR_MIN_LEN];
+    char email[STR_MIN_LEN];
+    char homeAdd[STR_MIN_LEN];
+    struct Date *dateOfBirth;
+} UserDetails;
+
+typedef struct Grade 
+{
+    float MATH;
+    float ENGLISH;
+    float SCIENCE;
+    float HISTORY;
+    float FILIPINO;
+    float PE; 
+} Grade;
+
+typedef struct Student 
+{
+    struct UserDetails *userdetails;
+    char section[STR_MIN_LEN];
+    int yearLvl;
+    struct Grade *grade;
+} Student;
+
+typedef struct Class 
+{
+    char section[STR_MIN_LEN];
+    struct Student listOfStudent[50];
+} Class;
+
+typedef struct Teacher {
+    struct UserDetails *userdetails;
+    struct Class *classes;
+} Teacher;
+//
+//
+//#################### METHOD DECLARATION ####################
+//#################### METHOD DECLARATION ####################
+//#################### METHOD DECLARATION ####################
+//
+//
+
+void registerUser(char *currentAction, char *prevAction);
+
+//
+//
+//
+//#################### MAIN ####################
+//#################### MAIN ####################
+//#################### MAIN ####################
+int main()
+{
+    char *str = "hello,world,mabuhay,kalamay";
+    char **strarr;
+    char *delimiter = ",";
+    int len = strSplit(str, strarr, delimiter);
+
+    for (int i = 0; i < len; i++)
+    {
+        printf("%s\n", strarr[i]);
+    }
+
+    printf("hello world\n");
+    
+
+    exit(0);
+    int delay = 550000; 
+
+    printf("Hello, World!\n");
+    printf("Loading 1%% .");
+    usleep(delay);
+    printf("\e[1;1H\e[2J");
+    printf("Loading 17%%. .");
+    usleep(delay);
+    printf("\e[1;1H\e[2J");
+    printf("Loading 17%%. . .");
+    usleep(delay);
+    printf("\e[1;1H\e[2J");
+
+    printf("Loading 56%%.");
+    usleep(delay);
+    printf("\e[1;1H\e[2J");
+    printf("Loading 60%%. .");
+    usleep(delay);
+    printf("\e[1;1H\e[2J");
+    printf("Loading 69%%. . .");
+    usleep(delay);
+    printf("\e[1;1H\e[2J");
+
+    printf("Loading 69%%.");
+    usleep(delay);
+    printf("\e[1;1H\e[2J");
+    printf("Loading 69%%. .");
+    usleep(delay);
+    printf("\e[1;1H\e[2J");
+    printf("Loading 70%%. . .");
+    usleep(delay);
+    printf("\e[1;1H\e[2J");
+
+    printf("Loading 77%%.");
+    usleep(delay);
+    printf("\e[1;1H\e[2J");
+    printf("Loading 82%%. .");
+    usleep(delay);
+    printf("\e[1;1H\e[2J");
+    printf("Loading 99%%. . .");
+    usleep(delay);
+    printf("\e[1;1H\e[2J");
+
+    printf("Loading 99%%.");
+    usleep(delay);
+    printf("\e[1;1H\e[2J");
+    printf("Loading 99%%. .");
+    usleep(delay);
+    printf("\e[1;1H\e[2J");
+    printf("Loading 100%%. . .");
+    usleep(1500000);
+    printf("\e[1;1H\e[2J");
+
+
+    int exitFlag = 0;
+    int isLoginFlag = 0;
+    char action[STR_MIN_LEN];
+    char actionPath[STR_MIN_LEN];
+    char actionPathSeparator[] = "\\";
+    char actionPathEndLine[] = "> ";
+    char prevAction[STR_MIN_LEN]; 
+    char rootAction[STR_MIN_LEN] = "grading-sys-User";  
+
+    
+
+
+    
+
+    while (exitFlag == 0)
+    {
+        
+
+        if(isLoginFlag == 0)
+        {
+            printf("USER> [l/logn]Login || [r/reg]Register\n");
+            printf("USER> ");
+            scanf("%s", action);
+        }
+
+        if(isLoginFlag == 0 && (strcmp("r", action) || strcmp("reg", action)))
+        {
+            
+            strncat(actionPath, "USER\\REGISTER> ", 16);
+            registerUser(actionPath, prevAction);
+            isLoginFlag = 1;
+        }
+        
+        if((isLoginFlag >= 0 || isLoginFlag <= 1) && (strcmp("l", action) || strcmp("logn", action)))
+        {
+            printf("User-Login> ");
+        }
+
+        scanf("%s", action);
+        if(strcmp("exit", action) == 0) exitFlag = 1;
+    }
+    
+    
+
+
+
+  return 0;
+}
+
+//#################### METHOD IMPLEMENTATION ####################
+//#################### METHOD IMPLEMENTATION ####################
+//#################### METHOD IMPLEMENTATION ####################
+
+
+void registerUser(char *currentAction, char *prevAction){
+    UserDetails *user = malloc(sizeof(UserDetails));
+    Student *student = malloc(sizeof(Student));
+    Teacher *teacher = malloc(sizeof(Teacher));
+    Class *classes = malloc(sizeof(Class));
+    Date *date = malloc(sizeof(Date));
+    Grade *grades = malloc(sizeof(Grade));
+    char currAction[STR_MIN_LEN] = "USER\\REGISTER> ";
+    char res[STR_MIN_LEN];
+
+    printf("%sregister as [t]Teacher || [s]Student\n", currAction);
+    printf("%s", currAction);
+    scanf("%s", res);
+
+    if(strcmp("exit", res) == 0) goto EXIT;
+
+    EXIT:
+
+}
