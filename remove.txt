@@ -1,0 +1,6 @@
+rm strflib.o 
+rm test.o 
+rm filehandlinglib.o 
+rm userStruct.o 
+rm c.exe
+rm student_csv_file.txt

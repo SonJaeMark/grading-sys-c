@@ -25,3 +25,5 @@ void strToCsvFormat(char strArr[STR_MAX_LEN][STR_MAX_LEN], char *delimiter, char
         }
     }
 }
+
+void hello();

@@ -5,4 +5,5 @@ int main(void)
     // strSplitTest(); // working
     // strToCsvFormatTest(); // working
     // idGeneratorTest(); // working
+    // saveUserTest(); // working
 }
