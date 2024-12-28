@@ -7,4 +7,4 @@
 #define FILE_LINE 1024
 
 int strSplit(char *input, char output[STR_MAX_LEN][FILE_LINE], char *delimiter);
-void strToCsvFormat(char strArr[STR_MAX_LEN][STR_MAX_LEN], char *delimiter, char *strInCsvFormat, int len);
+void strToCsvFormat(char strArr[STR_MIN_LEN][STR_MIN_LEN], char *delimiter, char *strInCsvFormat, int len);

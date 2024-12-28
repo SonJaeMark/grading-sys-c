@@ -4,3 +4,4 @@ rm filehandlinglib.o
 rm userStruct.o 
 rm c.exe
 rm student_csv_file.txt
+rm teacher_csv_file.txt
